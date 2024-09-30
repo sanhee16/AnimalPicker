@@ -8,8 +8,8 @@
 import ProjectDescription
 import ProjectDescriptionHelpers
 
-let name = "MainFeature"
+let module = Module.mainFeature
 
-var project = Project.featureFramework(name: name, dependencies: [
+var project = Project.featureFramework(name: module.name, dependencies: [
     .project(target: "Core", path: "../Core")
 ])

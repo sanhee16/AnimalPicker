@@ -8,8 +8,8 @@
 import ProjectDescription
 import ProjectDescriptionHelpers
 
-let name = "SplashFeature"
+let module = Module.splashFeature
 
-var project = Project.featureFramework(name: name, dependencies: [
+var project = Project.featureFramework(name: module.name, dependencies: [
     .project(target: "Core", path: "../Core")
 ])
