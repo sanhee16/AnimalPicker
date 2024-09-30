@@ -6,30 +6,10 @@
 //
 
 import ProjectDescription
+import ProjectDescriptionHelpers
 
 let name = "MainFeature"
 
-var project = Project(
-    name: name,
-    targets: [
-        .target(
-            name: name,
-            destinations: .iOS,
-            product: .framework,
-            bundleId: "io.tuist.AnimalPicker.\(name)",
-            infoPlist: .extendingDefault(
-                with: [
-                    "UILaunchScreen": [
-                        "UIColorName": "",
-                        "UIImageName": "",
-                    ],
-                ]
-            ),
-            sources: ["Sources/**"],
-            resources: ["Resources/**"],
-            dependencies: [
-                .project(target: "Core", path: "../Core")
-            ]
-        ),
-    ]
-)
+var project = Project.featureFramework(name: name, dependencies: [
+    .project(target: "Core", path: "../Core")
+])

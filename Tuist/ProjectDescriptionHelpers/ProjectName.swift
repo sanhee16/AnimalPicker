@@ -10,8 +10,8 @@ import ProjectDescription
 public enum Module {
     case app
     case core
-    case splash
-    case main
+    case splashFeature
+    case mainFeature
 }
 
 extension Module {
@@ -21,10 +21,10 @@ extension Module {
             return "App"
         case .core:
             return "Core"
-        case .splash:
-            return "Splash"
-        case .main:
-            return "Main"
+        case .splashFeature:
+            return "SplashFeature"
+        case .mainFeature:
+            return "MainFeature"
         }
     }
     

@@ -12,9 +12,10 @@ var project = Project(
     targets: [
         .target(
             name: "AnimalPicker",
-            destinations: .iOS,
+            destinations: [.iPad, .iPhone],
             product: .app,
             bundleId: "io.tuist.AnimalPicker",
+            deploymentTargets: .iOS("15.0"),
             infoPlist: .extendingDefault(
                 with: [
                     "UILaunchScreen": [
