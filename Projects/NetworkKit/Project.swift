@@ -8,7 +8,7 @@
 import ProjectDescription
 import ProjectDescriptionHelpers
 
-let module = Module.core
+let module = Module.networkKit
 
 var project = Project.kitFramework(name: module.name, dependencies: [
     

@@ -44,4 +44,31 @@ extension Project {
             ]
         )
     }
+    
+    
+    public static func kitFramework(name: String, dependencies: [TargetDependency] = []) -> Project {
+        return Project(
+            name: name,
+            targets: [
+                .target(
+                    name: name,
+                    destinations: [.iPad, .iPhone],
+                    product: .framework,
+                    bundleId: "io.tuist.AnimalPicker.\(name)",
+                    deploymentTargets: .iOS("15.0"),
+                    infoPlist: .extendingDefault(
+                        with: [
+                            "UILaunchScreen": [
+                                "UIColorName": "",
+                                "UIImageName": "",
+                            ],
+                        ]
+                    ),
+                    sources: ["Sources/**"],
+                    resources: [],
+                    dependencies: dependencies
+                ),
+            ]
+        )
+    }
 }

@@ -12,6 +12,7 @@ public enum Module {
     case core
     case splashFeature
     case mainFeature
+    case networkKit
 }
 
 extension Module {
@@ -25,6 +26,8 @@ extension Module {
             return "SplashFeature"
         case .mainFeature:
             return "MainFeature"
+        case .networkKit:
+            return "NetworkKit"
         }
     }
     
