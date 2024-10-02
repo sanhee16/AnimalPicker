@@ -8,7 +8,10 @@
 import ProjectDescription
 
 extension Project {
-    public static func featureFramework(name: String, dependencies: [TargetDependency] = []) -> Project {
+    public static func featureFramework(
+        name: String,
+        dependencies: [TargetDependency] = []
+    ) -> Project {
         return Project(
             name: name,
             targets: [
@@ -16,7 +19,7 @@ extension Project {
                     name: name,
                     destinations: [.iPad, .iPhone],
                     product: .framework,
-                    bundleId: "io.tuist.AnimalPicker.\(name)",
+                    bundleId: "com.sandy.AnimalPicker.\(name)",
                     deploymentTargets: .iOS("15.0"),
                     infoPlist: .extendingDefault(
                         with: [
@@ -54,16 +57,8 @@ extension Project {
                     name: name,
                     destinations: [.iPad, .iPhone],
                     product: .framework,
-                    bundleId: "io.tuist.AnimalPicker.\(name)",
+                    bundleId: "com.sandy.\(name)",
                     deploymentTargets: .iOS("15.0"),
-                    infoPlist: .extendingDefault(
-                        with: [
-                            "UILaunchScreen": [
-                                "UIColorName": "",
-                                "UIImageName": "",
-                            ],
-                        ]
-                    ),
                     sources: ["Sources/**"],
                     resources: [],
                     dependencies: dependencies

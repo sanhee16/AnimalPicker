@@ -6,11 +6,11 @@
 //
 
 import SwiftUI
-import Core
+//import Core
 
 public struct ContentView: View {
     public var body: some View {
-        Text("Hello~".addSandy())
+        Text("Hello~")
             .padding()
     }
 }

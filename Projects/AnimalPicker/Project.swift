@@ -14,7 +14,7 @@ var project = Project(
             name: "AnimalPicker",
             destinations: [.iPad, .iPhone],
             product: .app,
-            bundleId: "io.tuist.AnimalPicker",
+            bundleId: "com.sandy.AnimalPicker",
             deploymentTargets: .iOS("15.0"),
             infoPlist: .extendingDefault(
                 with: [
