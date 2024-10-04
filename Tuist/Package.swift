@@ -5,8 +5,9 @@ import PackageDescription
     import ProjectDescription
 
     let packageSettings = PackageSettings(
+        // default is .staticFramework
         productTypes: [
-            "Alamofire": .framework, // default is .staticFramework
+            "Alamofire": .framework, // .framework ==  .dynamicFramework
         ]
     )
 #endif

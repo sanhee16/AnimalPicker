@@ -10,8 +10,8 @@ import ProjectDescription
 public enum Module {
     case app
     case core
-    case splashFeature
-    case mainFeature
+    case featureSplash
+    case featureMain
     case networkKit
 }
 
@@ -22,17 +22,17 @@ extension Module {
             return "App"
         case .core:
             return "Core"
-        case .splashFeature:
-            return "SplashFeature"
-        case .mainFeature:
-            return "MainFeature"
+        case .featureSplash:
+            return "FeatureSplash"
+        case .featureMain:
+            return "FeatureMain"
         case .networkKit:
             return "NetworkKit"
         }
     }
     
     public var path: ProjectDescription.Path {
-        return .relativeToRoot("Project/" + self.name)
+        return .relativeToRoot("Projects/" + self.name)
     }
     
     public var project: TargetDependency {

@@ -6,6 +6,7 @@
 //
 
 import ProjectDescription
+import ProjectDescriptionHelpers
 
 var project = Project(
     name: "AnimalPicker",
@@ -27,8 +28,8 @@ var project = Project(
             sources: ["Sources/**"],
             resources: ["Resources/**"],
             dependencies: [
-                .project(target: "MainFeature", path: "../MainFeature"),
-                .project(target: "SplashFeature", path: "../SplashFeature"),
+                .project(target: Module.featureMain.name, path: Module.featureMain.path),
+                .project(target: Module.featureSplash.name, path: Module.featureSplash.path),
             ]
         ),
 //        .target(
