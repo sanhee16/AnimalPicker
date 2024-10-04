@@ -11,5 +11,6 @@ import ProjectDescriptionHelpers
 let module = Module.featureMain
 
 var project = Project.featureFramework(name: module.name, dependencies: [
-    .project(target: Module.core.name, path: Module.core.path)
+    .project(target: Module.core.name, path: Module.core.path),
+    .project(target: Module.ui.name, path: Module.ui.path),
 ])

@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import FeatureMain
 
 @main
 struct AnimalPickerApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
     }
 }

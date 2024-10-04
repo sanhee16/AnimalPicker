@@ -13,6 +13,7 @@ public enum Module {
     case featureSplash
     case featureMain
     case networkKit
+    case ui
 }
 
 extension Module {
@@ -28,6 +29,8 @@ extension Module {
             return "FeatureMain"
         case .networkKit:
             return "NetworkKit"
+        case .ui:
+            return "UI"
         }
     }
     
