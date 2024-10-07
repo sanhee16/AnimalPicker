@@ -6,15 +6,18 @@
 //
 
 import ProjectDescription
-
 import ProjectDescriptionHelpers
 
 let module = Module.networkKit
 
-var project = Project.kitFramework(
+var project = Project(
     name: module.name,
-    dependencies: [
-        .external(name: "Alamofire")
-//        .spm.Alamofire
+    targets: [
+        kit(
+            module: module,
+            dependencies: [
+                .external(name: "Alamofire")
+            ]
+        )
     ]
 )

@@ -9,11 +9,14 @@ import ProjectDescription
 
 public enum Module {
     case app
-    case core
+    
     case featureSplash
     case featureMain
+    
+    case core
     case networkKit
     case ui
+    case coordinator
 }
 
 extension Module {
@@ -31,6 +34,8 @@ extension Module {
             return "NetworkKit"
         case .ui:
             return "UI"
+        case .coordinator:
+            return "Coordinator"
         }
     }
     

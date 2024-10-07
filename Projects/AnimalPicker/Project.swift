@@ -8,39 +8,17 @@
 import ProjectDescription
 import ProjectDescriptionHelpers
 
+let module = Module.app
+
 var project = Project(
-    name: "AnimalPicker",
+    name: module.name,
     targets: [
-        .target(
-            name: "AnimalPicker",
-            destinations: [.iPad, .iPhone],
-            product: .app,
-            bundleId: "com.sandy.AnimalPicker",
-            deploymentTargets: .iOS("15.0"),
-            infoPlist: .extendingDefault(
-                with: [
-                    "UILaunchScreen": [
-                        "UIColorName": "",
-                        "UIImageName": "",
-                    ],
-                ]
-            ),
-            sources: ["Sources/**"],
-            resources: ["Resources/**"],
+        app(
+            module: module,
             dependencies: [
-                .project(target: Module.featureMain.name, path: Module.featureMain.path),
-                .project(target: Module.featureSplash.name, path: Module.featureSplash.path),
+                Module.featureMain.project,
+//                Module.featureSplash.project,
             ]
-        ),
-//        .target(
-//            name: "AnimalPickerTests",
-//            destinations: .iOS,
-//            product: .unitTests,
-//            bundleId: "io.tuist.AnimalPickerTests",
-//            infoPlist: .default,
-//            sources: ["AnimalPicker/Tests/**"],
-//            resources: [],
-//            dependencies: [.target(name: "AnimalPicker")]
-//        ),
+        )
     ]
 )

@@ -10,6 +10,14 @@ import ProjectDescriptionHelpers
 
 let module = Module.core
 
-var project = Project.kitFramework(name: module.name, dependencies: [
-    .project(target: Module.networkKit.name, path: Module.networkKit.path),
-])
+var project = Project(
+    name: module.name,
+    targets: [
+        kit(
+            module: module,
+            dependencies: [
+                Module.networkKit.project
+            ]
+        )
+    ]
+)

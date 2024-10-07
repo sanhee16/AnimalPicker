@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import Coordinator
 import UI
 
 public struct MainView: View {
     private let rainbowColors: [Color] = [.red, .orange, .yellow, .green, .blue, .purple, .red]
     
     @StateObject private var vm: MainVM = MainVM()
+    @StateObject private var coordinator: AppCoordinator = AppCoordinator<Destination>()
     @State private var duckpos: CGRect = .zero
     @State private var rotating = 0.0
     
@@ -20,26 +22,13 @@ public struct MainView: View {
     }
     
     public var body: some View {
-        GeometryReader { geometry in
+        NavigationStack(path: $coordinator.paths) {
             VStack(alignment: .leading, spacing: 0) {
-//                Topbar("Animal Picker", backgroundColor: Color.clear)
+                //                Topbar("Animal Picker", backgroundColor: Color.clear)
                 ZStack(alignment: .bottom, content: {
                     VStack(alignment: .leading, spacing: 14) {
-//                        ZStack(alignment: .center, content: {
-//                            Image("ButtonText_Large_Square_Orange")
-//                                .resizable()
-//                                .frame(height: 48, alignment: .center)
-//                            
-//                            Text("Multi Game")
-//                                .font(.kr20b)
-//                                .foregroundStyle(Color.white)
-//                                .zIndex(1)
-//                        })
-//                        .contentShape(Rectangle())
-//                        .paddingTop(30)
-                        
                         Button(action: {
-                            
+                            coordinator.push(Destination.splash)
                         }, label: {
                             Text("Play")
                                 .font(.kr20b)
@@ -57,16 +46,20 @@ public struct MainView: View {
                         Spacer()
                     }
                     .paddingHorizontal(20)
-                    .frame(width: geometry.size.width, alignment: .leading)
+                    .frame(maxWidth: .infinity)
                     .zIndex(3)
                     drawBackground()
                 })
             }
-            .frame(width: geometry.size.width, alignment: .center)
+            .navigationBarBackButtonHidden()
+            .navigationDestination(for: Destination.self) { destination in
+                destination.view
+            }
+            .frame(maxWidth: .infinity)
+            .background(
+                LinearGradient(gradient: Gradient(colors: rainbowColors), startPoint: .topLeading, endPoint: .bottomTrailing)
+            )
         }
-        .background(
-            LinearGradient(gradient: Gradient(colors: rainbowColors), startPoint: .topLeading, endPoint: .bottomTrailing)
-        )
     }
     
     private func drawBackground() -> some View {

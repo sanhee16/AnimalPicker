@@ -10,7 +10,16 @@ import ProjectDescriptionHelpers
 
 let module = Module.featureSplash
 
-var project = Project.featureFramework(name: module.name, dependencies: [
-    .project(target: Module.core.name, path: Module.core.path),
-    .project(target: Module.ui.name, path: Module.ui.path),
-])
+var project = Project(
+    name: module.name,
+    targets: [
+        feature(
+            module: module,
+            dependencies: [
+                Module.core.project,
+                Module.ui.project,
+                Module.coordinator.project,
+            ]
+        )
+    ]
+)
