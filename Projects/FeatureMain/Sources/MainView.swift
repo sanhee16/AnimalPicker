@@ -25,33 +25,35 @@ public struct MainView: View {
 //                Topbar("Animal Picker", backgroundColor: Color.clear)
                 ZStack(alignment: .bottom, content: {
                     VStack(alignment: .leading, spacing: 14) {
-                        ZStack(alignment: .center, content: {
-                            Image("ButtonText_Large_Square_Orange")
-                                .resizable()
-                                .frame(height: 48, alignment: .center)
-                            
-                            Text("Multi Game")
-                                .font(.kr20b)
-                                .foregroundStyle(Color.white)
-                                .zIndex(1)
-                        })
-                        .contentShape(Rectangle())
-                        .paddingTop(30)
+//                        ZStack(alignment: .center, content: {
+//                            Image("ButtonText_Large_Square_Orange")
+//                                .resizable()
+//                                .frame(height: 48, alignment: .center)
+//                            
+//                            Text("Multi Game")
+//                                .font(.kr20b)
+//                                .foregroundStyle(Color.white)
+//                                .zIndex(1)
+//                        })
+//                        .contentShape(Rectangle())
+//                        .paddingTop(30)
                         
-                        ZStack(alignment: .center, content: {
-                            Image("ButtonText_Large_Square_Green")
-                                .resizable()
-                                .frame(height: 48, alignment: .center)
+                        Button(action: {
                             
-                            Text("Single Game")
+                        }, label: {
+                            Text("Play")
                                 .font(.kr20b)
                                 .foregroundStyle(Color.white)
-                                .zIndex(1)
+                                .frame(maxWidth: .infinity)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 12.0)
+                                        .foregroundStyle(Color.orange)
+                                        .frame(height: 50.0, alignment: .center)
+                                        .border(Color.white, lineWidth: 3, cornerRadius: 12.0)
+                                )
                         })
                         .contentShape(Rectangle())
-                        .onTapGesture {
-//                            self.coordinator.pushRankingView()
-                        }
+                        .paddingTop(40)
                         Spacer()
                     }
                     .paddingHorizontal(20)

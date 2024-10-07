@@ -7,6 +7,75 @@
 
 import ProjectDescription
 
+public func feature(
+    module: Module,
+    dependencies: [Module] = []
+) -> ProjectDescription.Target {
+    return .target(
+        name: module.name,
+        destinations: [.iPad, .iPhone],
+        product: .framework,
+        bundleId: "com.sandy.AnimalPicker.\(module.name)",
+        deploymentTargets: .iOS("15.0"),
+        infoPlist: .extendingDefault(
+            with: [
+                "UILaunchScreen": [
+                    "UIColorName": "",
+                    "UIImageName": "",
+                ],
+            ]
+        ),
+        sources: ["Sources/**"],
+        resources: ["Resources/**",],
+        dependencies: dependencies.map({ $0.project })
+    )
+}
+
+public func app(
+    module: Module,
+    dependencies: [Module] = []
+) -> ProjectDescription.Target {
+    return .target(
+        name: module.name,
+        destinations: [.iPad, .iPhone],
+        product: .app,
+        bundleId: "com.sandy.AnimalPicker.\(module.name)",
+        deploymentTargets: .iOS("15.0"),
+        infoPlist: .extendingDefault(
+            with: [
+                "UILaunchScreen": [
+                    "UIColorName": "",
+                    "UIImageName": "",
+                ],
+            ]
+        ),
+        sources: ["Sources/**"],
+        resources: ["Resources/**"],
+        dependencies: dependencies.map({ $0.project })
+    )
+}
+
+public func kit(
+    module: Module,
+    dependencies: [Module] = []
+) -> ProjectDescription.Target {
+    return .target(
+        name: module.name,
+        destinations: [.iPad, .iPhone],
+        product: .framework,
+        bundleId: "com.sandy.AnimalPicker.\(module.name)",
+        deploymentTargets: .iOS("15.0"),
+        sources: ["Sources/**"],
+        resources: [],
+        dependencies: dependencies.map({ $0.project })
+    )
+}
+
+
+func dependency(_ module: Module) -> TargetDependency {
+    return .project(target: module.name, path: module.path)
+}
+
 extension Project {
     public static func featureFramework(
         name: String,
