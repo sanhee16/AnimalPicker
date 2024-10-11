@@ -13,11 +13,24 @@ let module = Module.app
 var project = Project(
     name: module.name,
     targets: [
-        app(
-            module: module,
+        .target(
+            name: module.name,
+            destinations: [.iPad, .iPhone],
+            product: .app,
+            bundleId: "com.sandy.AnimalPicker",
+            deploymentTargets: .iOS("16.0"),
+            infoPlist: .extendingDefault(
+                with: [
+                    "UILaunchScreen": [
+                        "UIColorName": "",
+                        "UIImageName": "",
+                    ],
+                ]
+            ),
+            sources: ["Sources/**"],
+            resources: ["Resources/**"],
             dependencies: [
                 Module.featureMain.project,
-//                Module.featureSplash.project,
             ]
         )
     ]

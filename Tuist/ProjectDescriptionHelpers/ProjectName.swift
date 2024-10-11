@@ -12,11 +12,18 @@ public enum Module {
     
     case featureSplash
     case featureMain
+    case featureRanking
     
+    case diContainer
     case core
     case networkKit
-    case ui
+    case commonUI
     case coordinator
+    
+    case domainRanking
+    
+    
+    case dataRanking
 }
 
 extension Module {
@@ -24,18 +31,26 @@ extension Module {
         switch self {
         case .app:
             return "App"
+        case .diContainer:
+            return "DIContainer"
         case .core:
             return "Core"
         case .featureSplash:
             return "FeatureSplash"
         case .featureMain:
             return "FeatureMain"
+        case .featureRanking:
+            return "FeatureRanking"
         case .networkKit:
             return "NetworkKit"
-        case .ui:
-            return "UI"
+        case .commonUI:
+            return "CommonUI"
         case .coordinator:
             return "Coordinator"
+        case .domainRanking:
+            return "DomainRanking"
+        case .dataRanking:
+            return "DataRanking"
         }
     }
     

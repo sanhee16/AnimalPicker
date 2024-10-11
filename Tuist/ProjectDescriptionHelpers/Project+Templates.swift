@@ -71,6 +71,38 @@ public func kit(
     )
 }
 
+public func domain(
+    module: Module,
+    dependencies: [TargetDependency] = []
+) -> ProjectDescription.Target {
+    return .target(
+        name: module.name,
+        destinations: [.iPad, .iPhone],
+        product: .framework,
+        bundleId: "com.sandy.AnimalPicker.kit.\(module.name)",
+        deploymentTargets: .iOS("16.0"),
+        sources: ["Sources/**"],
+        resources: [],
+        dependencies: dependencies
+    )
+}
+
+public func data(
+    module: Module,
+    dependencies: [TargetDependency] = []
+) -> ProjectDescription.Target {
+    return .target(
+        name: module.name,
+        destinations: [.iPad, .iPhone],
+        product: .framework,
+        bundleId: "com.sandy.AnimalPicker.kit.\(module.name)",
+        deploymentTargets: .iOS("16.0"),
+        sources: ["Sources/**"],
+        resources: [],
+        dependencies: dependencies
+    )
+}
+
 //
 //func dependency(_ module: Module) -> TargetDependency {
 //    return .project(target: module.name, path: module.path)

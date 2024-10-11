@@ -7,19 +7,19 @@
 
 import Foundation
 import Coordinator
-import FeatureSplash
+import FeatureRanking
 import SwiftUI
 
 public enum Destination: DestinationProtocol {
     case main
-    case splash
+    case ranking
     
     public var viewName: String {
         switch self {
         case .main:
             return "main"
-        case .splash:
-            return "splash"
+        case .ranking:
+            return "ranking"
         }
     }
     
@@ -28,8 +28,8 @@ public enum Destination: DestinationProtocol {
         switch self {
         case .main:
             MainView()
-        case .splash:
-            SplashView()
+        case .ranking:
+            RankingView()
         }
     }
 }

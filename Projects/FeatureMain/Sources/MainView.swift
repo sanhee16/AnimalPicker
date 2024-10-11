@@ -7,7 +7,7 @@
 
 import SwiftUI
 import Coordinator
-import UI
+import CommonUI
 
 public struct MainView: View {
     private let rainbowColors: [Color] = [.red, .orange, .yellow, .green, .blue, .purple, .red]
@@ -28,7 +28,7 @@ public struct MainView: View {
                 ZStack(alignment: .bottom, content: {
                     VStack(alignment: .leading, spacing: 14) {
                         Button(action: {
-                            coordinator.push(Destination.splash)
+                            coordinator.push(Destination.ranking)
                         }, label: {
                             Text("Play")
                                 .font(.kr20b)

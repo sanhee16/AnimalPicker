@@ -2,13 +2,13 @@
 //  Project.swift
 //  Manifests
 //
-//  Created by sandy on 9/30/24.
+//  Created by sandy on 10/4/24.
 //
 
 import ProjectDescription
 import ProjectDescriptionHelpers
 
-let module = Module.core
+let module = Module.commonUI
 
 var project = Project(
     name: module.name,
@@ -16,7 +16,6 @@ var project = Project(
         kit(
             module: module,
             dependencies: [
-                Module.networkKit.project,
             ]
         )
     ]

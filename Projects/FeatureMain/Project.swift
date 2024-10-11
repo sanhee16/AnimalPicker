@@ -17,9 +17,9 @@ var project = Project(
             module: module,
             dependencies: [
                 Module.core.project,
-                Module.ui.project,
+                Module.commonUI.project,
                 Module.coordinator.project,
-                Module.featureSplash.project,
+                Module.featureRanking.project,
             ]
         )
     ]

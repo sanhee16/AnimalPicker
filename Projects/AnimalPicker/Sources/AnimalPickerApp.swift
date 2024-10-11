@@ -7,12 +7,13 @@
 
 import SwiftUI
 import FeatureMain
+import FeatureRanking
 
 @main
 struct AnimalPickerApp: App {
     var body: some Scene {
         WindowGroup {
-            MainView()
+            RankingView()
         }
     }
 }
