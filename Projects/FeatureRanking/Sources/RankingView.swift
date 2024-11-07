@@ -10,7 +10,7 @@ import CommonUI
 import DomainRanking
 
 public struct RankingView: View {
-    @StateObject private var vm: RankingVM = RankingVM()
+    @EnvironmentObject private var vm: RankingVM
     @State private var currentLevel: LevelEntity = .easy
     @State private var rankLocation: CGRect = CGRect.zero
     @State private var nicknameLocation: CGRect = CGRect.zero

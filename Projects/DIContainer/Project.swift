@@ -16,9 +16,8 @@ var project = Project(
         kit(
             module: module,
             dependencies: [
-                Module.domainRanking.project,
                 Module.dataRanking.project,
-                .external(name: "Factory"),
+//                .external(name: "Factory"),
             ]
         )
     ]

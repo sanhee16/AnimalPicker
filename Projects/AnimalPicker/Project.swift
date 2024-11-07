@@ -31,6 +31,7 @@ var project = Project(
             resources: ["Resources/**"],
             dependencies: [
                 Module.featureMain.project,
+                Module.diContainer.project,
             ]
         )
     ]

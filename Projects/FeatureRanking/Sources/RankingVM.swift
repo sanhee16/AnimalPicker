@@ -6,26 +6,30 @@
 //
 
 import Combine
-import DIContainer
 import DomainRanking
-import Factory
 
-class RankingVM: ObservableObject {
-    @Injected(\.getRankingUseCase) var getRankingUseCase
-    @Injected(\.getLevelUseCase) var getLevelUseCase
-//    var totalRankings: [RankingEntity] = []
+public class RankingVM: ObservableObject {
+    private var getRankingUseCase: GetRankingUseCase? = nil
+    private var getLevelUseCase: GetLevelUseCase? = nil
     @Published var rankings: [RankingEntity] = []
     @Published var levels: [LevelEntity] = []
     
-    init() {
-        getLevels()
+    public init() {
+//        getLevels()
+    }
+    
+    public func attachUseCases(getRankingUseCase: GetRankingUseCase, getLevelUseCase: GetLevelUseCase) {
+        self.getRankingUseCase = getRankingUseCase
+        self.getLevelUseCase = getLevelUseCase
     }
     
     private func getLevels() {
-        self.levels = self.getLevelUseCase.execute()
+        guard let getLevelUseCase = getLevelUseCase else { return }
+        self.levels = getLevelUseCase.execute()
     }
     
     func getRanking(_ level: LevelEntity) {
+        guard let getRankingUseCase = getRankingUseCase else { return }
         self.rankings = getRankingUseCase.execute(level)
     }
     

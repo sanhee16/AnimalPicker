@@ -22,7 +22,6 @@ public enum Module {
     
     case domainRanking
     
-    
     case dataRanking
 }
 
@@ -58,8 +57,16 @@ extension Module {
         return .relativeToRoot("Projects/" + self.name)
     }
     
+    public var interfacePath: ProjectDescription.Path {
+        return .relativeToRoot("Projects/Interfaces/" + self.name)
+    }
+    
     public var project: TargetDependency {
         return .project(target: self.name, path: self.path)
+    }
+    
+    public var interface: TargetDependency {
+        return .project(target: self.name, path: self.interfacePath)
     }
 }
 

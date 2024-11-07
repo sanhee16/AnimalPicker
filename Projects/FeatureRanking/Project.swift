@@ -20,7 +20,6 @@ var project = Project(
                 Module.commonUI.project,
                 Module.coordinator.project,
                 Module.domainRanking.project,
-                Module.diContainer.project,
             ]
         )
     ]

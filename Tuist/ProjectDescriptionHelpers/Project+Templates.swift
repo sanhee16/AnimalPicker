@@ -7,6 +7,23 @@
 
 import ProjectDescription
 
+public func interface(
+    parent: Module,
+    module: Module,
+    dependencies: [TargetDependency] = []
+) -> ProjectDescription.Target {
+    return .target(
+        name: module.name,
+        destinations: [.iPad, .iPhone],
+        product: .framework,
+        bundleId: "com.sandy.AnimalPicker.feature.\(parent.name).\(module.name)",
+        deploymentTargets: .iOS("16.0"),
+        sources: ["Sources/**"],
+        resources: [],
+        dependencies: dependencies
+    )
+}
+
 public func feature(
     module: Module,
     dependencies: [TargetDependency] = []
